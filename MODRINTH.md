@@ -1,5 +1,7 @@
 # Champ Seed Xray
 
+![Champ Seed Xray logo](https://raw.githubusercontent.com/ingmarltd11-cyber/champ-seed-xray/main/logo.png)
+
 A **client-side seed-based ore simulation** for **Minecraft 1.21.11** on **Fabric**, with a native Minecraft GUI.
 
 ![Champ Seed Xray GUI](https://raw.githubusercontent.com/ingmarltd11-cyber/champ-seed-xray/main/screenshots/gui.png)
@@ -17,6 +19,8 @@ There is no ImGui: the interface uses normal Minecraft buttons and sliders. The 
 - Optional tracer lines to nearby ores.
 - Deepslate-only filter.
 - Scan radius from 1 to 8 chunks.
+- Optional Mod Menu 17.0.1 integration with a config button in the mod list.
+- Built-in keybind editor with rebind and reset.
 - Automatic cache reset when the dimension or seed changes.
 - Settings saved in `config/champ-seed-xray.json`.
 - Source code and a sources jar are included.
@@ -24,12 +28,15 @@ There is no ImGui: the interface uses normal Minecraft buttons and sliders. The 
 ## How to use
 
 1. Install Fabric Loader for Minecraft 1.21.11 and Fabric API.
-2. Put `champ-seed-xray-1.0.0.jar` in your `mods` folder.
-3. Join a world and press `F8`.
+2. Put `champ-seed-xray-1.1.0.jar` in your `mods` folder.
+3. Optional: add Mod Menu 17.0.1 or newer to open the settings from the mod list.
+4. Join a world and press `F8`.
 4. Type the world seed. A plain number works, and a line such as `Seed: [123456789]` also works because the first integer is extracted.
 5. Press `Apply seed`.
 6. Press `Seed Xray: OFF` or press `F9` to start.
 7. Choose the ores you want and set the scan radius.
+
+Change the keys under `Keybinds...` in the panel, or in Minecraft's Controls screen. `Reset keys` restores F8 and F9.
 
 The seed must be known. A multiplayer client cannot request the server seed, so this only works when you already know it and the world uses vanilla or near-vanilla ore generation.
 
@@ -58,6 +65,7 @@ This is a prediction, not a block scan. Custom worldgen, datapacks, modded dimen
 | Minecraft | 1.21.11 |
 | Loader | Fabric Loader 0.19.0+ |
 | Dependency | Fabric API |
+| Optional | Mod Menu 17.0.1+ |
 | Java | 21 |
 | Environment | Client |
 | License | MIT |

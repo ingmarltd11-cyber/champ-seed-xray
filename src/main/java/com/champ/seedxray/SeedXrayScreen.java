@@ -19,6 +19,7 @@ public final class SeedXrayScreen extends Screen {
     private static final List<String> ORES = List.of(
         "Diamond", "Gold", "Iron", "Redstone", "Lapis", "Emerald", "Coal", "Copper", "Quartz", "Ancient Debris");
 
+    private final Screen parent;
     private ButtonWidget activeButton;
     private ButtonWidget tracerButton;
     private ButtonWidget deepslateButton;
@@ -26,7 +27,12 @@ public final class SeedXrayScreen extends Screen {
     private final ButtonWidget[] oreButtons = new ButtonWidget[ORES.size()];
 
     public SeedXrayScreen() {
+        this(null);
+    }
+
+    public SeedXrayScreen(Screen parent) {
         super(Text.literal("Champ Seed Xray"));
+        this.parent = parent;
     }
 
     @Override
@@ -83,8 +89,11 @@ public final class SeedXrayScreen extends Screen {
             SeedXrayConfig.deepslateOnly = !SeedXrayConfig.deepslateOnly;
             refresh();
         }).dimensions(x + 26 + half, y + 170, half, 16).build());
+        addDrawableChild(ButtonWidget.builder(Text.literal("Keybinds..."), button ->
+            client.setScreen(new SeedXrayKeybindsScreen(this)))
+            .dimensions(x + 20, y + 192, half, 18).build());
         addDrawableChild(ButtonWidget.builder(Text.literal("Close"), button -> close())
-            .dimensions(x + 20, y + 192, panelW - 40, 18).build());
+            .dimensions(x + 26 + half, y + 192, half, 18).build());
         refresh();
     }
 
@@ -110,11 +119,16 @@ public final class SeedXrayScreen extends Screen {
         context.fill(x, y, x + panelW, y + 2, ACCENT);
         context.fill(x, y + panelH - 1, x + panelW, y + panelH, BORDER);
         context.drawText(this.textRenderer, this.title, x + 20, y + 8, TEXT, false);
-        context.drawText(this.textRenderer, Text.literal("Seed-based ore simulation - F8 opens, F9 toggles"),
+        context.drawText(this.textRenderer, Text.literal("Seed-based ore simulation - "
+            + keyName(SeedXrayMod.openKey()) + " opens, " + keyName(SeedXrayMod.toggleKey()) + " toggles"),
             x + 20, y + 19, MUTED, false);
         context.drawText(this.textRenderer, Text.literal(shorten(SeedXrayController.status(), 58)),
             x + 20, y + 96, MUTED, false);
         super.render(context, mouseX, mouseY, deltaTicks);
+    }
+
+    private static String keyName(net.minecraft.client.option.KeyBinding binding) {
+        return binding == null ? "unbound" : binding.getBoundKeyLocalizedText().getString();
     }
 
     private static String label(String ore) {
@@ -144,7 +158,7 @@ public final class SeedXrayScreen extends Screen {
     public void close() {
         SeedXrayConfig.seed = seedField.getText();
         SeedXrayConfig.save();
-        super.close();
+        if (client != null) client.setScreen(parent);
     }
 
     @Override

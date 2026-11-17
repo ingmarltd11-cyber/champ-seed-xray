@@ -13,4 +13,5 @@
 | Source | https://github.com/ingmarltd11-cyber/champ-seed-xray |
 | Issues | https://github.com/ingmarltd11-cyber/champ-seed-xray/issues |
 | Icon | `icon.png` |
-| Gallery | `screenshots/gui.png` |
+| Wordmark | `logo.png` |
+| Gallery | `screenshots/gui.png`, `screenshots/keybinds.png` |

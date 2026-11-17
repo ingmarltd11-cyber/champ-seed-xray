@@ -14,7 +14,8 @@
     "issues": "https://github.com/ingmarltd11-cyber/champ-seed-xray/issues"
   },
   "entrypoints": {
-    "client": ["com.champ.seedxray.SeedXrayMod"]
+    "client": ["com.champ.seedxray.SeedXrayMod"],
+    "modmenu": ["com.champ.seedxray.ModMenuIntegration"]
   },
   "accessWidener": "champ-seed-xray.accesswidener",
   "depends": {
@@ -22,5 +23,8 @@
     "minecraft": "~1.21.11",
     "java": ">=21",
     "fabric-api": "*"
+  },
+  "suggests": {
+    "modmenu": ">=17.0.1"
   }
 }

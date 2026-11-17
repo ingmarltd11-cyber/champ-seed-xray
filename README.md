@@ -1,5 +1,7 @@
 # Champ Seed Xray
 
+![Champ Seed Xray](logo.png)
+
 A client-side seed-based ore simulation for **Minecraft 1.21.11** on **Fabric**, with a native Minecraft GUI.
 
 ![Champ Seed Xray GUI](screenshots/gui.png)
@@ -16,6 +18,8 @@ Champ Seed Xray predicts where vanilla ore features generate for a given world s
 - Deepslate-only filter.
 - Scan radius from 1 to 8 chunks.
 - Automatic cache reset when the dimension or seed changes.
+- Optional Mod Menu 17.0.1 integration; open the settings from the mod list.
+- Built-in keybind editor with rebind and reset.
 - Native Minecraft buttons and sliders, designed for GUI scale 2.
 - Settings persist in `config/champ-seed-xray.json`.
 
@@ -33,8 +37,9 @@ Champ Seed Xray predicts where vanilla ore features generate for a given world s
 
 1. Install Fabric Loader for Minecraft 1.21.11.
 2. Put Fabric API in your `mods` folder.
-3. Put `champ-seed-xray-1.0.0.jar` in the same `mods` folder.
-4. Start the game with the Fabric profile.
+3. Put `champ-seed-xray-1.1.0.jar` in the same `mods` folder.
+4. Optional: install Mod Menu 17.0.1 or newer to open the settings from the mod list.
+5. Start the game with the Fabric profile.
 
 The sources jar is for reading and building, not for the `mods` folder.
 
@@ -46,7 +51,9 @@ The sources jar is for reading and building, not for the `mods` folder.
 | `F9` | Apply the seed and start or stop the simulation |
 | `Escape` | Close the panel without stopping the simulation |
 
-Keybinds can be changed in Minecraft's normal Controls screen under the Champ Seed Xray category.
+Change the keys in the panel under `Keybinds...`, or in Minecraft's normal Controls screen under the Champ Seed Xray category. `Reset keys` restores the F8 and F9 defaults.
+
+![Champ Seed Xray keybinds](screenshots/keybinds.png)
 
 ## Usage
 
@@ -114,8 +121,8 @@ gradlew.bat build
 The mod jar and sources jar are written to `build/libs/`:
 
 ```
-champ-seed-xray-1.0.0.jar
-champ-seed-xray-1.0.0-sources.jar
+champ-seed-xray-1.1.0.jar
+champ-seed-xray-1.1.0-sources.jar
 ```
 
 To run a development client:
