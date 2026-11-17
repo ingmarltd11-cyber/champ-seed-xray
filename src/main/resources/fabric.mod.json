@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "champ-seed-xray",
+  "version": "${version}",
+  "name": "Champ Seed Xray",
+  "description": "Standalone seed-based ore simulation with a native Minecraft interface.",
+  "authors": ["Champ"],
+  "license": "MIT",
+  "icon": "assets/champ-seed-xray/icon.png",
+  "environment": "client",
+  "contact": {
+    "homepage": "https://github.com/ingmarltd11-cyber/champ-seed-xray",
+    "sources": "https://github.com/ingmarltd11-cyber/champ-seed-xray",
+    "issues": "https://github.com/ingmarltd11-cyber/champ-seed-xray/issues"
+  },
+  "entrypoints": {
+    "client": ["com.champ.seedxray.SeedXrayMod"]
+  },
+  "accessWidener": "champ-seed-xray.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.19.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
